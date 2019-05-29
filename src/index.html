@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+
+		<!-- <meta name="description" content="A description of the page"> -->
+		<!-- <meta name="author" content="author"> -->
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<!-- <link rel="icon" type="image/png" sizes="16x16" href="/path/to/favicon-16x16.png"> -->
+		<!-- <meta name="theme-color" content="#E64545"> -->
+
+		<link rel="stylesheet" href="css/index.css" />
+	</head>
+
+	<body>
+		<div class="overlay">
+			<div class="fight-stat">
+				<div data-el="fight"></div>
+			</div>
+			<div class="stats bole">
+				<div class="team">BoLe</div>
+				<div data-el="boleatkstats" class="atk">
+					<span data-el="boleatkstatsTXT"></span>
+				</div>
+				<div data-el="boledefstats" class="def">
+					<span data-el="boledefstatsTXT"></span>
+				</div>
+			</div>
+			<div class="stats spartans">
+				<div class="team">Spartanen</div>
+				<div data-el="spartansatkstats" class="atk">
+					<span data-el="spartansatkstatsTXT"></span>
+				</div>
+				<div data-el="spartansdefstats" class="def">
+					<span data-el="spartansdefstatsTXT"></span>
+				</div>
+			</div>
+
+			<div class="phase">
+				<div data-el="phase"></div>
+			</div>
+		</div>
+		<div class="army-container"></div>
+		<div class="rocks rock1"></div>
+		<div class="rocks rock2"></div>
+		<script src="js/index.js"></script>
+	</body>
+</html>

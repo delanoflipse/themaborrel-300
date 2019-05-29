@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Document</title>
+
+		<!-- <meta name="description" content="A description of the page"> -->
+		<!-- <meta name="author" content="author"> -->
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<!-- <link rel="icon" type="image/png" sizes="16x16" href="/path/to/favicon-16x16.png"> -->
+		<!-- <meta name="theme-color" content="#E64545"> -->
+
+		<link rel="stylesheet" href="css/admin.css" />
+	</head>
+
+	<body>
+		<div id="app" v-cloak>
+			<div class="container">
+				<h1>Acties (pls, niet aanraken)</h1>
+				<button @click="reload">Herladen</button>
+				<button @click="restart">Herstarten (broken)</button>
+				<h1>Spartanen ({{ state.spartans.length }})</h1>
+				<div v-for="(spartan, index) in state.spartans">
+					<div>{{ spartan.name }}</div>
+					<button @click="deleteSpartan(index)">verwijderen</button>
+				</div>
+
+				<form @submit.prevent="addSpartan">
+					<input type="text" v-model="input.spartan" />
+					<br />
+					<button type="submit">toevoegen</button>
+				</form>
+
+				<h2>Aanval status</h2>
+				<button @click="toggleBattle" v-if="state.battle">
+					Aanval stoppen
+				</button>
+				<button @click="toggleBattle" v-else>Aanval starten</button>
+
+				<h2>Score spartanen aanpassen</h2>
+				<form @submit.prevent="setStats">
+					<label>Attack stats spartanen aanpassen</label>
+					<br />
+					<input type="number" v-model="input.satk" />
+					<br />
+					<label>Defense stats spartanen aanpassen</label>
+					<br />
+					<input type="number" v-model="input.sdef" />
+					<br />
+					<button type="submit">Toevoegen</button>
+				</form>
+
+				<button @click="resetStats">Spartanen stat resetten</button>
+
+				<h2>Score bole aanpassen</h2>
+				<form @submit.prevent="updateBole">
+					<label>Attack stats bole aanpassen</label>
+					<br />
+					<input type="number" v-model="input.batk" />
+					<br />
+					<label>Defense stats bole aanpassen</label>
+					<br />
+					<input type="number" v-model="input.bdef" />
+					<br />
+					<button type="submit">Toevoegen</button>
+				</form>
+				<button @click="resetStatsBole">Bole stat resetten</button>
+
+				<h1>Spelacties</h1>
+				<button @click="resetPhase">Nieuw fase beginnen</button>
+
+				<h2>Kleine dingetjes</h2>
+				<form @submit.prevent="setMessage">
+					<label>Bericht</label>
+					<input type="text" v-model="state.message" />
+					<br />
+					<button type="submit">Aanpassen</button>
+				</form>
+
+				<form @submit.prevent="setPhase">
+					<label>Fase</label>
+					<input type="input" v-model="state.phase" />
+					<br />
+					<button type="submit">Aanpassen</button>
+				</form>
+			</div>
+		</div>
+		<script src="js/admin.js"></script>
+	</body>
+</html>
